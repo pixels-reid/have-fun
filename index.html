@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#050713" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CYBER SCAN 2077" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="description"
+      content="CYBER SCAN 2077，一款纯属虚构的朋友恶搞互动小游戏。"
+    />
+    <title>CYBER SCAN 2077 · Identity Scanner</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body data-mode="intro">
+    <div class="ambient" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--blue"></span>
+      <span class="ambient__orb ambient__orb--violet"></span>
+      <span class="ambient__orb ambient__orb--red"></span>
+      <span class="ambient__grid"></span>
+      <span class="ambient__noise"></span>
+    </div>
+
+    <main class="app-shell" id="app">
+      <button
+        class="sound-toggle glass-control"
+        id="soundToggle"
+        type="button"
+        aria-label="开启音效"
+        aria-pressed="false"
+        title="开启音效"
+      >
+        <svg class="sound-toggle__off" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+          <path d="m17 9 4 4m0-4-4 4" />
+        </svg>
+        <svg class="sound-toggle__on" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+          <path d="M16 9.5a4 4 0 0 1 0 5M18.5 7a7.5 7.5 0 0 1 0 10" />
+        </svg>
+      </button>
+
+      <section class="screen screen--intro is-active" id="screenIntro" aria-labelledby="introTitle">
+        <header class="topbar">
+          <a class="wordmark" href="#" aria-label="CYBER SCAN 2077 首页">
+            <span class="wordmark__mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 2.5 27 8v8.2c0 6.5-4.3 11.2-11 13.3-6.7-2.1-11-6.8-11-13.3V8l11-5.5Z" />
+                <path d="M16 9v14M9 16h14" />
+                <circle cx="16" cy="16" r="3.5" />
+              </svg>
+            </span>
+            <span>CYBER SCAN <b>2077</b></span>
+          </a>
+          <span class="beta-chip">BETA</span>
+        </header>
+
+        <div class="glass-card intro-card">
+          <div class="system-line">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>AI IDENTITY ENGINE</span>
+            <span class="system-line__code">CN-01</span>
+          </div>
+
+          <div class="intro-heading">
+            <p class="eyebrow">NEURAL LINK ESTABLISHED</p>
+            <h1 id="introTitle">
+              IDENTITY
+              <span>SCANNER</span>
+            </h1>
+            <p class="intro-subtitle">请选择你在班里的职务。</p>
+          </div>
+
+          <div class="signal-strip" aria-hidden="true">
+            <span>SCAN</span>
+            <div class="signal-bars">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span>READY</span>
+          </div>
+
+          <fieldset class="role-picker">
+            <legend class="sr-only">选择班级职务</legend>
+            <button class="role-card" type="button" data-role="monitor" aria-pressed="false">
+              <span class="role-card__emoji" aria-hidden="true">👑</span>
+              <span class="role-card__text">
+                <b>班长</b>
+                <small>CLASS LEADER</small>
+              </span>
+              <span class="role-card__check" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="m5 10 3 3 7-7" /></svg>
+              </span>
+            </button>
+
+            <button class="role-card" type="button" data-role="study" aria-pressed="false">
+              <span class="role-card__emoji" aria-hidden="true">📚</span>
+              <span class="role-card__text">
+                <b>学习委员</b>
+                <small>STUDY</small>
+              </span>
+              <span class="role-card__check" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="m5 10 3 3 7-7" /></svg>
+              </span>
+            </button>
+
+            <button class="role-card" type="button" data-role="youth" aria-pressed="false">
+              <span class="role-card__emoji" aria-hidden="true">🎖️</span>
+              <span class="role-card__text">
+                <b>团支书</b>
+                <small>YOUTH</small>
+              </span>
+              <span class="role-card__check" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="m5 10 3 3 7-7" /></svg>
+              </span>
+            </button>
+
+            <button class="role-card" type="button" data-role="arts" aria-pressed="false">
+              <span class="role-card__emoji" aria-hidden="true">🎨</span>
+              <span class="role-card__text">
+                <b>文艺委员</b>
+                <small>ARTS</small>
+              </span>
+              <span class="role-card__check" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="m5 10 3 3 7-7" /></svg>
+              </span>
+            </button>
+
+            <button class="role-card role-card--wide" type="button" data-role="labor" aria-pressed="false">
+              <span class="role-card__emoji" aria-hidden="true">🧹</span>
+              <span class="role-card__text">
+                <b>劳动委员</b>
+                <small>LABOR &amp; SERVICE</small>
+              </span>
+              <span class="role-card__check" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="m5 10 3 3 7-7" /></svg>
+              </span>
+            </button>
+          </fieldset>
+
+          <p class="selection-status" id="selectionStatus" aria-live="polite">
+            等待职务授权
+          </p>
+
+          <button class="primary-button" id="startButton" type="button" disabled>
+            <span class="primary-button__shine" aria-hidden="true"></span>
+            <span>开始扫描</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-5-5 5 5-5 5" />
+            </svg>
+          </button>
+
+          <div class="privacy-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="10" rx="3" />
+              <path d="M8.5 10V7.5a3.5 3.5 0 1 1 7 0V10" />
+            </svg>
+            <span>本地运行 · 不定位 · 不收集个人信息</span>
+          </div>
+        </div>
+
+        <p class="fictional-note">FICTIONAL PRANK EXPERIENCE · 仅供朋友间娱乐</p>
+      </section>
+
+      <section
+        class="screen screen--scanning"
+        id="screenScanning"
+        aria-labelledby="scanTitle"
+        aria-hidden="true"
+        hidden
+      >
+        <header class="screen-header">
+          <span class="screen-kicker">CYBER SCAN 2077</span>
+          <span class="scan-live"><i></i> LIVE</span>
+        </header>
+
+        <div class="scan-stage">
+          <div class="radar" aria-hidden="true">
+            <span class="radar__grid"></span>
+            <span class="radar__sweep"></span>
+            <span class="radar__ring radar__ring--one"></span>
+            <span class="radar__ring radar__ring--two"></span>
+            <span class="radar__axis radar__axis--x"></span>
+            <span class="radar__axis radar__axis--y"></span>
+            <span class="radar__orbit radar__orbit--one"></span>
+            <span class="radar__orbit radar__orbit--two"></span>
+            <span class="radar__target">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v4m0 12v4M2 12h4m12 0h4" />
+              </svg>
+            </span>
+            <span class="radar__pulse"></span>
+          </div>
+
+          <div class="scan-copy">
+            <p class="eyebrow">IDENTITY SEARCH IN PROGRESS</p>
+            <h2 id="scanTitle" aria-live="polite">正在连接数据库</h2>
+            <p id="scanDetail">正在建立加密神经链路 …</p>
+          </div>
+        </div>
+
+        <div class="scan-progress" aria-label="扫描进度">
+          <div class="scan-progress__meta">
+            <span>NEURAL MATCH</span>
+            <strong id="progressLabel">0%</strong>
+          </div>
+          <div
+            class="progress-track"
+            id="progressTrack"
+            role="progressbar"
+            aria-label="扫描进度"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <i id="progressFill"></i>
+          </div>
+        </div>
+
+        <ol class="scan-steps" aria-label="扫描步骤">
+          <li class="scan-step is-active" data-stage="0">
+            <span class="scan-step__dot"><i></i></span>
+            <span>正在连接数据库</span>
+            <small>CONNECT</small>
+          </li>
+          <li class="scan-step" data-stage="1">
+            <span class="scan-step__dot"><i></i></span>
+            <span>正在分析身份</span>
+            <small>ANALYZE</small>
+          </li>
+          <li class="scan-step" data-stage="2">
+            <span class="scan-step__dot"><i></i></span>
+            <span>正在匹配目标</span>
+            <small>MATCH</small>
+          </li>
+          <li class="scan-step" data-stage="3">
+            <span class="scan-step__dot"><i></i></span>
+            <span>正在锁定目标</span>
+            <small>LOCK</small>
+          </li>
+          <li class="scan-step" data-stage="4">
+            <span class="scan-step__dot"><i></i></span>
+            <span>身份识别成功</span>
+            <small>VERIFIED</small>
+          </li>
+        </ol>
+
+        <div class="scan-telemetry" aria-hidden="true">
+          <span>LATENCY <b>12ms</b></span>
+          <span>NODE <b>CN-2077</b></span>
+          <span>ENCRYPTION <b>AES-∞</b></span>
+        </div>
+      </section>
+
+      <section
+        class="screen screen--identity"
+        id="screenIdentity"
+        aria-labelledby="identityTitle"
+        aria-hidden="true"
+        hidden
+      >
+        <header class="screen-header">
+          <span class="screen-kicker">IDENTITY RECORD</span>
+          <span class="verified-chip">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7" /></svg>
+            VERIFIED
+          </span>
+        </header>
+
+        <div class="identity-glow" aria-hidden="true"></div>
+
+        <div class="glass-card identity-card">
+          <p class="eyebrow">TARGET IDENTIFIED</p>
+          <h2 id="identityTitle">
+            抓到你了<span>！</span>
+          </h2>
+
+          <div class="target-portrait" aria-hidden="true">
+            <span class="target-portrait__corner target-portrait__corner--tl"></span>
+            <span class="target-portrait__corner target-portrait__corner--tr"></span>
+            <span class="target-portrait__corner target-portrait__corner--bl"></span>
+            <span class="target-portrait__corner target-portrait__corner--br"></span>
+            <span class="target-portrait__grid"></span>
+            <svg viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="52" />
+              <circle cx="80" cy="80" r="32" />
+              <path d="M80 10v34m0 72v34M10 80h34m72 0h34" />
+              <path class="portrait-scan" d="M28 80h104" />
+            </svg>
+            <span class="target-portrait__label">FACE HASH 8F3-A7</span>
+          </div>
+
+          <dl class="target-data">
+            <div>
+              <dt>目标人物</dt>
+              <dd id="targetName">—</dd>
+            </div>
+            <div>
+              <dt>班级职务</dt>
+              <dd id="targetRole">—</dd>
+            </div>
+          </dl>
+
+          <div class="locked-stamp">
+            <span class="locked-stamp__ring" aria-hidden="true"></span>
+            <span>已锁定</span>
+            <small>TARGET LOCK 100%</small>
+          </div>
+        </div>
+
+        <button class="text-button" id="continueButton" type="button">
+          <span>进入虚构警报</span>
+          <span class="auto-continue">自动继续 <i id="identityTimer">04</i>s</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg>
+        </button>
+      </section>
+
+      <section
+        class="screen screen--alert"
+        id="screenAlert"
+        aria-labelledby="alertTitle"
+        aria-hidden="true"
+        hidden
+      >
+        <div class="alert-siren" aria-hidden="true"></div>
+
+        <header class="alert-header">
+          <span class="alert-emblem" aria-hidden="true">
+            <svg viewBox="0 0 52 52">
+              <path d="M26 4 46 14v12c0 11-8 18.8-20 22C14 44.8 6 37 6 26V14L26 4Z" />
+              <path d="M26 15v14m0 7v.2" />
+            </svg>
+          </span>
+          <span class="alert-header__copy">
+            <small>FICTIONAL SIMULATION</small>
+            <strong>UNITED STATES<br />DEFENSE SYSTEM</strong>
+          </span>
+          <span class="alert-header__code">DEFCON<br /><b>07</b></span>
+        </header>
+
+        <div class="alert-content" id="alertContent">
+          <div class="alarm-badge">
+            <i aria-hidden="true"></i>
+            SYSTEM ALERT
+          </div>
+
+          <div class="alert-title">
+            <h2 id="alertTitle">目标已锁定</h2>
+            <p>虚构警报已启动！</p>
+          </div>
+
+          <div class="alert-target glass-card">
+            <span class="alert-target__label">TARGET PERSON</span>
+            <strong id="alertName">—</strong>
+            <span class="alert-target__meta">
+              <span id="alertRole">—</span>
+              <i aria-hidden="true"></i>
+              <span>FICTIONAL TARGET</span>
+            </span>
+          </div>
+
+          <div class="countdown-block">
+            <span class="countdown-block__label">LAUNCH SEQUENCE</span>
+            <div class="countdown" id="countdown" aria-label="警报倒计时">
+              <span id="countdownValue">10</span>
+              <small>SECONDS</small>
+            </div>
+            <div class="countdown-dots" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+
+          <p class="alert-disclaimer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 2.8 20h18.4L12 3Z" />
+              <path d="M12 9v5m0 3v.1" />
+            </svg>
+            所有军事元素均为虚构恶搞动画，不对应任何真实系统、机构或事件。
+          </p>
+        </div>
+
+        <div class="alert-ticker" aria-hidden="true">
+          <span>
+            SIMULATION ONLY // NO REAL LOCATION DATA // NO PERSONAL DATA COLLECTED //
+            FICTIONAL DEFENSE SYSTEM // SIMULATION ONLY //
+          </span>
+        </div>
+      </section>
+
+      <section
+        class="screen screen--final"
+        id="screenFinal"
+        aria-labelledby="finalTitle"
+        aria-hidden="true"
+        hidden
+      >
+        <div class="celebration" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="final-stack">
+          <div class="prank-face" aria-hidden="true">
+            <span class="prank-face__eye"></span>
+            <span class="prank-face__eye"></span>
+            <span class="prank-face__smile"></span>
+          </div>
+
+          <p class="eyebrow">PRANK COMPLETE</p>
+          <h2 id="finalTitle">
+            <span>HAHAHAHA!</span>
+            你被骗了！
+          </h2>
+          <p class="final-copy">别紧张，刚刚的一切都只是虚构动画。</p>
+
+          <div class="achievement glass-card">
+            <span class="achievement__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28">
+                <path d="M8 4h12v5a6 6 0 0 1-12 0V4Z" />
+                <path d="M8 6H4v2a5 5 0 0 0 5 5m11-7h4v2a5 5 0 0 1-5 5M14 15v5m-5 4h10m-8-4h6" />
+              </svg>
+            </span>
+            <span class="achievement__text">
+              <small>TODAY'S ACHIEVEMENT</small>
+              <strong>今日成就</strong>
+              <span>成功被朋友恶搞一次</span>
+            </span>
+            <span class="achievement__rarity">RARE</span>
+          </div>
+
+          <button class="primary-button primary-button--restart" id="restartButton" type="button">
+            <span class="primary-button__shine" aria-hidden="true"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.8 9A8 8 0 1 1 4 14m.8-5H10M4.8 9V4" />
+            </svg>
+            <span>重新开始</span>
+          </button>
+
+          <p class="final-footnote">NO REAL PEOPLE WERE SCANNED · 100% FICTIONAL</p>
+        </div>
+      </section>
+
+      <div class="impact-overlay" id="impactOverlay" aria-hidden="true">
+        <div class="impact-flash"></div>
+        <div class="shockwave"></div>
+        <div class="fireball"><span></span><span></span></div>
+        <div class="impact-particles" id="impactParticles"></div>
+        <div class="boom-copy">
+          <small>SIMULATION IMPACT</small>
+          <strong>BOOOOOOM!</strong>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
