@@ -91,7 +91,7 @@
   let scanFrame = 0;
   let countdownFrame = 0;
   let identityInterval = 0;
-  let soundEnabled = false;
+  let soundEnabled = true;
   let audioContext = null;
   let detonationStarted = false;
   let lastCountdownNumber = null;
